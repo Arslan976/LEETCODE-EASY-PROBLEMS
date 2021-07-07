@@ -1,15 +1,18 @@
-def twoSum(nums, target):
-        """
-        :type nums: List[int]
-        :type target: int
-        :rtype: List[int]
-        """
-        answerArray = []
-        index = 0
-        while index < len(nums):   
-            if index + 1 < len(nums) and nums[index] + nums[index + 1] == target:
-                answerArray = [index, index + 1]
-            index += 1
-        return answerArray
 
-print(twoSum([2,7,11,15],9))
+def twoSum(self, nums, target):
+        indiceArray = []
+        first_index = 0
+        flag = True
+        
+        while(flag == True and first_index < len(nums)):
+            second_index = 1    
+            while (flag == True and first_index != second_index and second_index < len(nums)):
+                if (nums[first_index] + nums[second_index] == target):
+                    indiceArray = [first_index, second_index]
+                    flag = False
+                second_index += 1
+            first_index += 1
+            print(indiceArray)
+        return indiceArray 
+
+twoSum("self", [3,3], 6 )
