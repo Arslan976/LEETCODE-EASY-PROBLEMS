@@ -9,6 +9,7 @@ def merge(self, nums1, m, nums2, n):
     else:
         while (index_num2 < n and index_num1 < len(nums1)):
             iterator = len(nums1) - 1
+            print(iterator)
             if nums1[index_num1] > nums2[index_num2]:
                 while(iterator > index_num1):
                     nums1[iterator] = nums1[iterator - 1]
@@ -25,4 +26,4 @@ def merge(self, nums1, m, nums2, n):
         
     return nums1
 
-print(merge("self",  [1,0], 1, [2] , 1))
+print(merge("self",  [-1,0,0,0,3,0,0,0,0,0,0], 5, [-1,-1,0,0,1,2] , 6 ))
