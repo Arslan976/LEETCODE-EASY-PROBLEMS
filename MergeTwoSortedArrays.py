@@ -1,29 +1,29 @@
-def merge(self, nums1, m, nums2, n):
-    index_num2 = 0
-    index_num1 = 0
-    if m == 0:
-        iterator = 0
-        while iterator < n:
-            nums1[iterator] = nums2[iterator]
-            iterator += 1
-    else:
-        while (index_num2 < n and index_num1 < len(nums1)):
-            iterator = len(nums1) - 1
-            print(iterator)
-            if nums1[index_num1] > nums2[index_num2]:
-                while(iterator > index_num1):
-                    nums1[iterator] = nums1[iterator - 1]
-                    iterator -= 1
-                nums1[index_num1] = nums2[index_num2]
-                index_num2 += 1
-            elif index_num1 > m and nums1[index_num1] == 0:
-                nums1[index_num1] = nums2[index_num2]
-                index_num2 += 1
-            elif index_num1 + 1 > m and nums1[index_num1] == 0:
-                nums1[index_num1] = nums2[index_num2]
-                index_num2 += 1
-            index_num1 += 1
+def merge(nums1, m, nums2, n):
+    resultArray = [None] * (m + n)
+    i = 0
+    j = 0
+    k = 0
+    while i < m and j < n:
+            
+        if nums1[i] < nums2[j]:
+            resultArray[k] = nums1[i]
+            i += 1
+            k += 1
+        else:
+            resultArray[k] = nums2[j] 
+            j += 1
+            k += 1
         
-    return nums1
-
-print(merge("self",  [-1,0,0,0,3,0,0,0,0,0,0], 5, [-1,-1,0,0,1,2] , 6 ))
+    while i < m:
+        resultArray[k] = nums1[i]
+        i += 1
+        k += 1
+        
+    while j < n:
+        resultArray[k] = nums2[j]
+        j += 1
+        k += 1
+        
+    print(resultArray)
+    
+merge([1,2,3,0,0,0], 3, [2,5,6], 3)
