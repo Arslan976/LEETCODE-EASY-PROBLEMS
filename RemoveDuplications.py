@@ -1,16 +1,21 @@
 def removeDuplicates(nums):
-    i = 0
-        
-    while i < len(nums):
-            
-        if i + 1 < len(nums) and nums[i] == nums[i + 1]:
-            j = i + 1
-            while j < len(nums):
-                nums[j - 1] = nums[j]
-                j += 1
-            nums.pop()
+        if len(nums) == 0 or len(nums) == 1:
+            print("Stopped! The Length of the Array is 1 or 0")
         else:
-            i += 1
-    return(nums)
-
-print(removeDuplicates([1,2,2,3,4,5,5,5]))
+            temporay_array = []
+            index = 0;
+            while index < len(nums) and index + 1 < len(nums):
+                if nums[index] != nums[index+1]:
+                    temporay_array.append(nums[index])
+                index += 1
+            temporay_array.append(nums[len(nums) - 1])
+            index = 0
+            while index < len(nums):
+                if index < len(temporay_array):
+                    nums[index] = temporay_array[index]
+                    index += 1
+                else:
+                    nums.pop()
+        return(nums)
+                    
+print(removeDuplicates([0,0,1,1,1,2,2,3,3,4]))
